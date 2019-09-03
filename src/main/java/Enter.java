@@ -21,9 +21,13 @@ public class Enter {
         driver.manage().window().maximize();
         driver.get("https://clone.ewa.ua/#/home");
         Thread.sleep(3000);
+        //Login login;
+        //login = new Login();
+        //login.logIn();
         driver.findElement(By.xpath("//div[@id='email']/div/input")).sendKeys("45076@ewa.ua");
         driver.findElement(By.xpath("//input[@id='password-input']")).sendKeys("A1122334455qwerty1867");
         driver.findElement(By.xpath("//div[@id='btnOK']/div/div")).click();
+
         Thread.sleep(3000);
         driver.findElement(By.xpath("//li[@id='id-menu-contracts']/a/i")).click();
         driver.findElement(By.xpath("//div[2]/div/div/div/div/div/div/div/div")).click();
@@ -132,15 +136,19 @@ public class Enter {
         Thread.sleep(2000);
         model.sendKeys(Keys.ARROW_DOWN);
         model.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
 
         WebElement year = driver.findElement(By.xpath("//div[@id='autoYear']/div/div/input"));  //year
         year.sendKeys("2008");
 
+        WebElement adressDostavki = driver.findElement(By.xpath("//div[7]/div/div/div/div/input")); //Адрес сдоставки
+        adressDostavki.sendKeys("Гонолулу, квартира 25");
+
         WebElement engine = driver.findElement(By.xpath("//div[@id='engineVolume']/div/div/input")); //engine
         engine.sendKeys("1555");
 
-        WebElement adressDostavki = driver.findElement(By.xpath("//div[7]/div/div/div/div/input")); //Адрес сдоставки
-        adressDostavki.sendKeys("Гонолулу, квартира 25");
+
+
 
 
 

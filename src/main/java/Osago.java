@@ -10,20 +10,16 @@ import org.openqa.selenium.interactions.Actions;
 
 public class Osago {
     public static WebDriver driver;
+    public static Login login = new Login(driver);
 
     @BeforeClass
     public static void comeIn() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\chrome\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://clone.ewa.ua/#/home");
-        Thread.sleep(3000);
-        //Login login;
-        //login = new Login();
-        //login.logIn();
-        driver.findElement(By.xpath("//div[@id='email']/div/input")).sendKeys("45076@ewa.ua");
-        driver.findElement(By.xpath("//input[@id='password-input']")).sendKeys("A1122334455qwerty1867");
-        driver.findElement(By.xpath("//div[@id='btnOK']/div/div")).click();
+
+        driver = login.open("https://clone.ewa.ua/#/home");
+        driver = login.logIn("45076@ewa.ua", "A1122334455qwerty1867");
 
         Thread.sleep(3000);
         driver.findElement(By.xpath("//li[@id='id-menu-contracts']/a/i")).click();
